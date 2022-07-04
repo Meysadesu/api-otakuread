@@ -29,14 +29,6 @@ func (s *service) Create(novels model.Novel) entities.WebResponse {
 	}
 
 	response, err := s.repository.FindByTitle(novels.Title)
-	if err != nil {
-		return entities.WebResponse{
-			Code:     http.StatusInternalServerError,
-			Messages: "cannot query data!!",
-			Data:     nil,
-		}
-	}
-
 	if err == gorm.ErrRecordNotFound {
 		return entities.WebResponse{
 			Code:     http.StatusNotFound,

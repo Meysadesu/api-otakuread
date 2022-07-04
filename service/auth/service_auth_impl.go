@@ -8,6 +8,7 @@ import (
 	"github.com/Meysadesu/otakuread/model"
 	"github.com/Meysadesu/otakuread/repository/auth"
 	"golang.org/x/crypto/bcrypt"
+	"gorm.io/gorm"
 )
 
 type service struct {
@@ -71,9 +72,9 @@ func (s *service) Register(auth model.Auth) entities.WebResponse {
 
 func (s *service) Login(auth model.Auth) entities.WebResponse {
 	data, err := s.repository.FindByUsername(auth.Username)
-	if err != nil {
+	if err != gorm.ErrRecordNotFound {
 		return entities.WebResponse{
-			Code:     http.StatusInternalServerError,
+			Code:     http.StatusNotFound,
 			Messages: "user not found!",
 			Data:     nil,
 		}

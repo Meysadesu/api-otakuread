@@ -16,7 +16,6 @@ type handler struct {
 
 func NewHandlerAuth(service auth.ServiceAuth) *handler {
 	return &handler{service: service}
-
 }
 
 func (h *handler) Register(c *fiber.Ctx) error {

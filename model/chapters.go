@@ -8,3 +8,11 @@ type Chapter struct {
 	Header   string `gorm:"not null" json:"header"`
 	Ctx      string `json:"content"`
 }
+
+type ChapterResponse struct {
+	ID       int
+	IDVolume int
+	Ch       string
+	Header   string
+	Ctx      string
+}
