@@ -72,7 +72,7 @@ func (s *service) Register(auth model.Auth) entities.WebResponse {
 
 func (s *service) Login(auth model.Auth) entities.WebResponse {
 	data, err := s.repository.FindByUsername(auth.Username)
-	if err != gorm.ErrRecordNotFound {
+	if err == gorm.ErrRecordNotFound {
 		return entities.WebResponse{
 			Code:     http.StatusNotFound,
 			Messages: "user not found!",

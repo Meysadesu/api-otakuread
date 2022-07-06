@@ -18,5 +18,5 @@ func Routes(app *fiber.App) {
 	g := app.Group("/v2")
 	g.Post("/volumes", jwt.JwtMiddleware(), handler.Create)
 	g.Get("/volumes", handler.FindAll)
-	app.Get("/v2/volumes", handler.FindByID)
+	app.Get("/v2/volume", handler.FindByID)
 }

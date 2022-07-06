@@ -2,7 +2,7 @@ package model
 
 type Novel struct {
 	ID          int      `gorm:"primaryKey;autoIncrement;unique;not null" json:"id"`
-	Title       string   `gorm:"size:255;unique;not null" json:"title" validate:"required"`
+	Title       string   `gorm:"size:255;unique;not null" json:"title"`
 	Alternative string   `gorm:"size:255;" json:"alternative"`
 	Cover       string   `gorm:"size:255;not null;default:'notfound.jpg'" json:"cover"`
 	Type        string   `gorm:"size:100;not null" json:"type"`
@@ -25,4 +25,18 @@ type NovelResponse struct {
 	Ranting     float64
 	Genre       string
 	Description string
+}
+
+type NvlResponse struct {
+	ID          int
+	Title       string
+	Alternative string
+	Cover       string
+	Type        string
+	Author      string
+	Status      string
+	Ranting     float64
+	Genre       string
+	Description string
+	Volume      []VolumeResponse
 }

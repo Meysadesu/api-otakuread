@@ -20,7 +20,7 @@ func Routes(app *fiber.App) {
 	novel := app.Group("/v2")
 	novel.Post("/novels", jwt.JwtMiddleware(), handler.Create)
 	app.Get("/v2/novels", handler.Find)
-	app.Get("/v2/novel", handler.FindByTitle)
+	novel.Get("/novel", handler.FindByTitle)
 	novel.Put("/novels", handler.Update)
 	novel.Delete("/novels", handler.Delete)
 }

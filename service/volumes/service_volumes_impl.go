@@ -76,9 +76,19 @@ func (s *service) Find() entities.WebResponse {
 		}
 	}
 
+	var resp []model.VolumeResponse
+	for _, v := range response {
+		resp = append(resp, model.VolumeResponse{
+			ID:          v.ID,
+			TitleNovel:  v.TitleNovel,
+			WhatsVolume: v.WhatsVolume,
+			Chapter:     nil,
+		})
+	}
+
 	return entities.WebResponse{
 		Code:     http.StatusOK,
 		Messages: "successfully",
-		Data:     nil,
+		Data:     resp,
 	}
 }
