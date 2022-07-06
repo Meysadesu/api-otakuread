@@ -44,9 +44,17 @@ func (s *service) FindByCH(ch string) entities.WebResponse {
 		}
 	}
 
+	resp := model.ChapterResponse{
+		ID:       response.ID,
+		IDVolume: response.ID,
+		Ch:       response.Ch,
+		Header:   response.Header,
+		Ctx:      response.Ctx,
+	}
+
 	return entities.WebResponse{
 		Code:     http.StatusOK,
 		Messages: "successfully",
-		Data:     response,
+		Data:     resp,
 	}
 }
