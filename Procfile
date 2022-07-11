@@ -1,0 +1,1 @@
+web: github.com/Meysadesu/otakuread
