@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-	godotenv.Load(".env")
+	godotenv.Load(".env.example")
 	app := server.Server()
 	app.Listen(":" + os.Getenv("PORT"))
 }

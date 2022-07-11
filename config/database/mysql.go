@@ -11,7 +11,7 @@ import (
 
 func MysqlConnect() (*gorm.DB, error) {
 
-	godotenv.Load(".env")
+	godotenv.Load(".env.example")
 
 	var (
 		user     = os.Getenv("DB_USER")

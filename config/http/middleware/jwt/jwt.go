@@ -9,7 +9,7 @@ import (
 )
 
 func JwtMiddleware() func(ctx *fiber.Ctx) error {
-	godotenv.Load(".env")
+	godotenv.Load(".env.example")
 	config := jwtware.Config{
 		SigningKey: []byte(os.Getenv("JWT_KEY")),
 	}

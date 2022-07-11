@@ -9,7 +9,7 @@ import (
 )
 
 func CreateToken(username string) (string, error) {
-	godotenv.Load(".env")
+	godotenv.Load(".env.example")
 	claim := jwt.MapClaims{}
 	claim["exp"] = time.Now().Add(24 * time.Hour).Unix()
 	claim["username"] = username
